@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <table>
+        <tr>
+            <th>
+                Imię i nazwisko
+            </th>
+            <th>
+                Obecności od zarania dziejów
+            </th>
+            <th>
+                Numer
+            </th>
+            <th>
+                Bramki od zarania dziejów
+            </th>
+            <th>
+                Asysty od zarania dziejów
+            </th>
+            <th>
+                Bramki samobójcze od zarania dziejów
+            </th>
+            <th>
+                Średnia bramek od zarania dziejów
+            </th>
+            <th>
+                Średnia asyst od zarania dziejów
+            </th>
+        </tr>
+        {% for player in players %}
+            <tr>
+                <td>
+                    {{ player.full_name }}
+                </td>
+                <td>
+                    {{ player.present_total }}
+                </td>
+                <td>
+                    {{ player.number }}
+                </td>
+                <td>
+                    {{ player.goals_total }}
+                </td>
+                <td>
+                    {{ player.assists_total }}
+                </td>
+                <td>
+                    {{ player.owngoals_total }}
+                </td>
+                <td>
+                    {{ player.goals_per_match }}
+                </td>
+                <td>
+                    {{ player.assists_per_match }}
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+</body>
+</html>

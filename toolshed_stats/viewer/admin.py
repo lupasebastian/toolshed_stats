@@ -1,8 +1,7 @@
 from django.contrib import admin
 from django.contrib.admin import ModelAdmin
 
-from .models import Player, Tournament, Opponent, Match, PlayerMatch, \
-    TableStanding
+from .models import Player, Tournament, Opponent, Match, PlayerMatch
 
 # Register your models here.
 
@@ -26,14 +25,8 @@ class MatchAdmin(ModelAdmin):
     list_filter = ['tournament_id', 'opponent_id', 'friendly']
 
 
-class TableStandingsAdmin(ModelAdmin):
-    list_filter = ['tournament_id']
-    ordering = ['place']
-
-
 admin.site.register(Player)
 admin.site.register(Tournament)
 admin.site.register(Opponent)
 admin.site.register(Match, MatchAdmin)
 admin.site.register(PlayerMatch, PlayerMatchAdmin)
-admin.site.register(TableStanding, TableStandingsAdmin)

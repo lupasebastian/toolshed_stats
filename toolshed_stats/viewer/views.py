@@ -2,7 +2,7 @@ from django.db.models import Sum, Count, ExpressionWrapper, FloatField
 from django.shortcuts import render
 
 # Create your views here.
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 
 from .models import Player, Tournament
 
@@ -24,3 +24,8 @@ class MainView(ListView):
                       assists_per_match=ExpressionWrapper(assists_total/present_total, output_field=FloatField()))
         context['tournaments'] = Tournament.objects.all()
         return context
+
+
+class PlayerDetailView(DetailView):
+    template_name = 'player_detail_view.html'
+    model = Player

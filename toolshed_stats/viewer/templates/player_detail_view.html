@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <table>
+        <tr>
+            <th>
+                Imię i nazwisko
+            </th>
+            <th>
+                Numer
+            </th>
+            <th>
+                Zdjęcie
+            </th>
+            <th>
+                Opis
+            </th>
+            <th>
+                Pozycja
+            </th>
+        </tr>
+        <tr>
+            <td>
+                {{ object.full_name }}
+            </td>
+            <td>
+                {{ object.number }}
+            </td>
+            <td>
+                {% if object.avatar %}
+                <img src="{{ MEDIA_URL }}{{ object.avatar }}" alt="Brak zdjęcia">
+                {% endif %}
+            </td>
+            <td>
+                {{ object.description }}
+            </td>
+            <td>
+                {{ object.position }}
+            </td>
+        </tr>
+    </table>
+{% endblock %}
